@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	
+<!--######################## DB設定 ########################-->
+    <key name="processingLayer">1</key>
+
+<!--######################## アドマスタサーバ設定 ########################-->
+    <key name="serverName">admaster01</key>
+    <key name="checkCountUpdateStatusWaitTimeSecond">20</key>
+    <key name="systemBonusImpRate">1.1</key>
+    <key name="limitDistributionDate">10</key>
+    <key name="stopPriority">3.3333</key>
+    <key name="defaultPriority">1.0000</key>
+    <key name="startRecoveryPriority">0.8000</key>
+    <key name="startTargetPriority">0.9900</key>
+    
+    <key name="swapListFile">/adjust/file/swapList.txt</key>
+	<key name="menuDeliveryResultDataFile">/adjust/file/</key>
+	
+	<key name="maxMenuCount">800</key>
+
+    <key name="countTimeOver">30</key><!-- second -->
+    
+<!--######################## アドフロントサーバ設定 ########################-->
+    <key name="adfrontserverUnitCount">1</key>
+    <key name="adfrontserverPort">8080</key>
+    <key name="adfrontserver_01">192.168.100.131</key>
+    <key name="adfrontserverSocketTimeOut">30000</key><!--ミリ秒-->
+    <key name="adfrontserverSocketCloseWait">30000</key><!--ミリ秒-->
+    <key name="adfrontserverConnectionTimeOut">30000</key><!--ミリ秒-->
+
+<!--######################## 不正ユーザエージェント設定 ########################-->
+    <key name="exclusionUaKeyLength">3</key>
+
+<!--########################レギュレーション詳細ID,素材タイプ変換表########################-->
+<!-- 1:JPG/GIF 2:テキスト  3:FLASH 4:Click to Play 6:大容量バナー -->
+    <key name="regulation_detail_id_1">2</key>
+    <key name="regulation_detail_id_2">1</key>
+    <key name="regulation_detail_id_3">1</key>
+    <key name="regulation_detail_id_4">3</key>
+    <key name="regulation_detail_id_5">6</key>
+    <key name="regulation_detail_id_6">1</key>
+    <key name="regulation_detail_id_7">1</key>
+    <key name="regulation_detail_id_8">3</key>
+    <key name="regulation_detail_id_9">1</key>
+    <key name="regulation_detail_id_10">1</key>
+    <key name="regulation_detail_id_11">3</key>
+    <key name="regulation_detail_id_12">6</key>
+    <key name="regulation_detail_id_13">4</key>
+    <key name="regulation_detail_id_14">1</key>
+    <key name="regulation_detail_id_15">1</key>
+    <key name="regulation_detail_id_16">3</key>
+    <key name="regulation_detail_id_17">4</key>
+    <!--  新規レギュレーションを追加 -->
+    <key name="regulation_detail_id_18">1</key>
+    <key name="regulation_detail_id_19">1</key>
+    <key name="regulation_detail_id_20">3</key>
+    <key name="regulation_detail_id_21">6</key>
+    <key name="regulation_detail_id_22">1</key>
+    <key name="regulation_detail_id_23">1</key>
+    <key name="regulation_detail_id_24">3</key>
+    <key name="regulation_detail_id_25">6</key>
+
+<!--######################## 配信比率計算用 ########################-->
+    <key name="topDeliveryWeightRate">1</key>
+    <key name="topDeliveryWeight">0</key>
+        
+<!--######################## Mongo database ########################-->
+    <key name="mongo_host">192.168.100.131:27017,192.168.100.135:27017</key>
+    <key name="mongo_db_count">admaster_count_db</key>
+    <key name="mongo_db_map_eve">admaster_map_db_eve</key>
+    <key name="mongo_db_map_odd">admaster_map_db_odd</key>
+    <key name="mongo_delivery_map_db">delivery_map_db</key>
+    <key name="mongo_local_host">192.168.100.135:27017</key>
+    <key name="mongo_replicaSetStatus_maxRetry">10</key>
+    <key name="mongo_replicaSetStatus_sleepTime">1000</key>
+    
+    <!-- memcached settings -->
+    <key name="CreativeLinkPool">192.168.100.130:11215</key>
+    <key name="memcachedInitialCon">2</key>
+    <key name="memcachedMaxCon">5</key>
+    <key name="memcachedMinCon">5</key>
+    <key name="memsleeptimes">10000</key>
+    <key name="memcachedSockTimeout">10000</key>
+    <key name="memcachedConTimeout">10000</key>
+	
+<!--######################## Count Logic ########################-->
+    <key name="download_file_dir">/adjust/countlog/</key>
+        
+<!--######################## 統一版ターゲットマップ作成設定 *(1:true;0:false)########################-->
+    <key name="unity_target_map">1</key>
+
+<!--######################## 配信マップMongo化 *(1:true;0:false)########################-->
+    <key name="save_delivery_map_to_mongodb">1</key>
+    <key name="save_delivery_priority_map_to_mongodb">1</key>
+</config>
