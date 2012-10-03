@@ -90,8 +90,10 @@ class WordIndex
 	
 	def add(obj, *phrases)
 		phrases.each do |phrase|
+			#p "phrase #{phrase}  : " + obj.to_s
 			phrase.scan(/\w[-\w']+/) do |word|
 				word.downcase!
+				#p "word #{word}"
 				@index[word] = [] if @index[word].nil?
 				@index[word].push(obj) unless @index[word].include?(obj)
 			end
@@ -99,6 +101,7 @@ class WordIndex
 	end
 	
 	def lookup(word)
+		#p @index
 		@index[word.downcase]
 	end
 end
@@ -172,6 +175,12 @@ end
 require 'test/unit'
 
 class SongListTestCases < Test::Unit::TestCase
+	def setup
+		p 'setup'
+	end
+	def teardown
+		p 'teardown'
+	end
 	def test_delete
 		list = SongList.new
 		song1 = Song.new("My Love 1", "s.shin", "2:45")
@@ -196,7 +205,6 @@ class SongListTestCases < Test::Unit::TestCase
 	end
 	def test_loadfile
 		list = SongList.load("songlist.txt");
-
 		assert_equal(3, list.size)
 		assert_equal("My Love", list[0].name)
 		assert_equal("Pretty Girl", list[1].name)
@@ -212,10 +220,9 @@ class SongListTestCases < Test::Unit::TestCase
 	def test_volumn
 		volumns = Volumn.new(3)..Volumn.new(5)
 		assert_equal(false, volumns.include?(Volumn.new(7)));
-		
 	end
+	
 end
-
 
 def show_regexp(a, re)
 	if a =~ re
@@ -227,6 +234,7 @@ end
 
 p show_regexp("Fats Waller", /ll/)
 p show_regexp("Fats Waller", /l/)
+
 
 
 
