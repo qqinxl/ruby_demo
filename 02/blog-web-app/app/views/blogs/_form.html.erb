@@ -1,33 +1,32 @@
-<%= form_for(@blog) do |f| %>
-  <% if @blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
 
-      <ul>
-      <% @blog.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="group">
+    <%= f.label :subject, t("activerecord.attributes.blog.subject", :default => "Subject"), :class => :label %>
+    <%= f.text_field :subject, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
 
-  <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
+  <div class="group">
+    <%= f.label :content, t("activerecord.attributes.blog.content", :default => "Content"), :class => :label %>
+    <%= f.text_area :content, :class => 'text_area' %>
+    <span class="description">Ex: a simple text</span>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+
+  <div class="group">
+    <%= f.label :publish_at, t("activerecord.attributes.blog.publish_at", :default => "Publish at"), :class => :label %>
+    <%= f.datetime_select :publish_at, :class => 'datetime_select' %>
+    <span class="description">Ex: a simple text</span>
   </div>
-  <div class="field">
-    <%= f.label :publish_at %><br />
-    <%= f.datetime_select :publish_at %>
+
+  <div class="group">
+    <%= f.label :user_id, t("activerecord.attributes.blog.user_id", :default => "User"), :class => :label %>
+    <%= f.number_field :user_id, :class => 'number_field' %>
+    <span class="description">Ex: a simple text</span>
   </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), blogs_path, :class => "text_button_padding link_button" %>
+</div>

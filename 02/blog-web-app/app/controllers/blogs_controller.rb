@@ -1,9 +1,13 @@
 class BlogsController < ApplicationController
+
+  before_filter :authenticate_user!
+  
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
-
+    #@blogs = Blog.all
+    @blogs = Blog.paginate(:per_page => 10, :page => params[:page])
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @blogs }
